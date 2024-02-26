@@ -23,8 +23,8 @@ mkdir -p /etc/letsencrypt/
 cd "${DIR}/opt/letsencrypt"
 
 source /.jelenv
-[ -n "${PROXY_PORT}" ] || PROXY_PORT=12345
-[ -n "${LE_PORT}" ] || LE_PORT=12346
+PROXY_PORT=12347
+LE_PORT=12348
 
 sed -ci -e "s/^Port.*/Port ${PROXY_PORT}/g" -e "s/12346/${LE_PORT}/g" ${TINYPROXY_CONFIG}
 
