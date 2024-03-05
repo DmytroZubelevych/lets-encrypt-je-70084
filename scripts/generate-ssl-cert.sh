@@ -39,7 +39,9 @@ params='';
 [[ "$webroot" == "true" && ! -z "$webrootPath" ]] && { params="--webroot ${webrootPath}"; } || { params=" --standalone --httpport ${LE_PORT} "; }
 
 #format domains list according to acme client
+echo domain $domain
 domain=$(echo $domain | sed -r 's/\s+/ -d /g');
+echo skipped_domains $skipped_domains
 skipped_domains=$(echo $skipped_domains | sed -r 's/\s+/ -d /g');
 
 [[ ! -z "$skipped_domains" ]] && {
@@ -125,7 +127,7 @@ do
 
     all_invalid_domains_errors+=$error";"
     all_invalid_domains+=$invalid_domain" "
-
+    echo domain2 $domain
     domain=$(echo $domain | sed 's/^'${invalid_domain}'\s-d\s//' | sed 's/\s-d\s'${invalid_domain}'\s-d\s//' | sed 's/\s-d\s'${invalid_domain}'$//' | sed 's/'${invalid_domain}'//')
   }
   counter=$((counter + 1))
