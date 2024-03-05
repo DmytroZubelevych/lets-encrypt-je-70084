@@ -11,6 +11,7 @@ targetEditions: [ "devops", "wordpress", "lite_do", "lite_vultr", "lite_gc", "ul
 
 targetNodes:
   nodeType:
+    - dockerengine
     - tomcat6
     - tomcat7
     - tomcat8
